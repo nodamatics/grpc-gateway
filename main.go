@@ -29,7 +29,7 @@ func run() error {
 	// Note: Make sure the gRPC server is running properly and accessible
 	mux := runtime.NewServeMux()
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	err := islamic_pb.RegisterIslamicProtoHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
+	err := islamic_pb.RegisterIslamicStakingHandlerFromEndpoint(ctx, mux, *grpcServerEndpoint, opts)
 	if err != nil {
 		return err
 	}
